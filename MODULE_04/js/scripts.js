@@ -14,7 +14,7 @@ function addKeyboardLayout(alphabet) {
 const ranRowSymbol = addKeyboardLayout(alphabet);
 
 function getRandCharInRow(row) {
-  row = +prompt("Введите число от 1-го до 3-х");
+  row = parseInt(prompt("Введите число от 1-го до 3-х"));
   if (row > 3 || row < 0) {
     alert("неверное число!");
   } else {
