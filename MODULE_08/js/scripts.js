@@ -35,12 +35,16 @@ const activeBtn = {
 const keyDown = (event) => {
   let pressedKey = event.key;
 
+  if (activeBtn.node !== null) {
+    activeBtn.node.classList.remove('keyboard__btn--active');
+    activeBtn.node = null;
+  }
+  if (pressedKey === " ") {
+    const space = document.querySelector(".keyboard__btn--space")
+    activeBtn.node = space;
+  }
   if (keys.includes(pressedKey)) {
 
-    if (activeBtn.node !== null) {
-      activeBtn.node.classList.remove('keyboard__btn--active');
-      activeBtn.node = null;
-    }
     let index = keys.indexOf(pressedKey);
     activeBtn.node = buttons[index];
   }
