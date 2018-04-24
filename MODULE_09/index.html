@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Homework_09</title>
+  </head>
+  <body>
+    <div class="keyboard"></div>
+
+<script type="text/template" id="keyboard-script">
+  <% Object.keys(rowsLang).map((key) => {%>
+  <div class="keyboard__row">
+      <% rowsLang[key].map(item => { %>
+          <button class="keyboard__btn"><%- item %></button>
+      <% }); %>
+  </div>
+  <% }); %>
+  <div class="keyboard__row">
+      <button class="keyboard__btn keyboard__btn--space"></button>
+  </div>
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+    <script src="js/scripts.js"> </script>
+  </body>
+</html>
