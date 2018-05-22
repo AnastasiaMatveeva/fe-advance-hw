@@ -35,36 +35,36 @@ keyboardOutput.textContent = `Your best result is ${bestResult} seconds`;
 
 let counter = 0;
 let time = setInterval(() => {
-    counter++;
-    timerOutput.innerHTML = counter;
+  counter++;
+  timerOutput.innerHTML = counter;
 }, 1000);
 
 
 const countKPS = () => {
-let pressedKeys = event.key;
-console.log(pressedKeys);
-if (pressedKeys === rightInput[0] && exerciseInput.length === 0){
-  exerciseInput.push(pressedKeys);
-}
-if (pressedKeys === rightInput[1] && exerciseInput.length === 1) {
-  exerciseInput.push(pressedKeys);
-}
-if (pressedKeys === rightInput[2] && exerciseInput.length === 2) {
-  exerciseInput.push(pressedKeys);
-}
-if (pressedKeys === rightInput[3] && exerciseInput.length === 3) {
-  exerciseInput.push(pressedKeys);
-}
-if (pressedKeys === rightInput[4] && exerciseInput.length === 4) {
-  exerciseInput.push(pressedKeys);
-}
-if (exerciseInput.length === 5) {
-  clearInterval(time);
-  if(parseInt(bestResult) > timerOutput.innerHTML) {
-  localStorage.setItem('best result:', timerOutput.innerHTML);
-}
-alert (`Your time is ${timerOutput.innerHTML} seconds`)
-}
+  let pressedKeys = event.key;
+  console.log(pressedKeys);
+  if (pressedKeys === rightInput[0] && exerciseInput.length === 0) {
+    exerciseInput.push(pressedKeys);
+  }
+  if (pressedKeys === rightInput[1] && exerciseInput.length === 1) {
+    exerciseInput.push(pressedKeys);
+  }
+  if (pressedKeys === rightInput[2] && exerciseInput.length === 2) {
+    exerciseInput.push(pressedKeys);
+  }
+  if (pressedKeys === rightInput[3] && exerciseInput.length === 3) {
+    exerciseInput.push(pressedKeys);
+  }
+  if (pressedKeys === rightInput[4] && exerciseInput.length === 4) {
+    exerciseInput.push(pressedKeys);
+  }
+  if (exerciseInput.length === 5) {
+    clearInterval(time);
+    if (parseInt(bestResult) > timerOutput.innerHTML) {
+      localStorage.setItem('best result:', timerOutput.innerHTML);
+    }
+    alert(`Your time is ${timerOutput.innerHTML} seconds`)
+  }
 };
 
 window.addEventListener('keydown', countKPS);
