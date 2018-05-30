@@ -27,15 +27,15 @@ const submitBtn = document.getElementById("submit-btn");
 
 submitBtn.addEventListener("click", validate);
 
-const firstNameRule = /
-w - латинский алфавит
-//[а-яґєії`´ʼ’ʼ’] украинский язык///
-// [ёъэы] русский язык
 function validate(evt) {
-
-  const objValidate = {
-    'first name': firstname.checkValidity(),
-    'last name': lastname.checkValidity()
-  };
-
+evt.preventDefault();
+const userName = {
+  first_name: '',
+  last_name:''
+}
+const regFirstName = /^[A-Za-zА-Яа-я]+(\s[A-Za-zА-Яа-я]+){0,2}$/;
+const regLastName = /^([А-яёЁ]+|[a-z+])+(\s?)(-?)(\s?)([А-яёЁ]+|[a-z]+)$/;
+userName.first_name = regFirstName.test(firstname.value);
+userName.last_name = regLastName.test(lastname.value);
+console.log(userName);
 }

@@ -1,0 +1,21 @@
+body {
+  padding: 20px;
+  font-family: Roboto, sans-serif;
+}
+
+form {
+  padding: 10px 20px;
+  box-shadow: 0 0 2px 2px rgba(#414141, 0.3);
+}
+button {
+  background-color:#58661c;
+  color: #fff;
+  height: 30px;
+  margin-top: 10px;
+}
+input {
+  height:20px;
+}
+.container {
+  border-bottom: 1px solid black;
+}
