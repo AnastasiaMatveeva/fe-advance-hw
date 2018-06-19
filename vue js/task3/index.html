@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue_2</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+  </head>
+  <style>
+    .slide-enter {
+      opacity: 0;
+    }
+    .slide-enter-active {
+      transition: opacity 0.5s;
+    }
+    .slide-leave-active {
+      transition: opacity 0.5s;
+    }
+    .slide-leave-to {
+      opacity: 0;
+    }
+  </style>
+  <body>
+  <div class="wrapper">
+      <div class="sample">
+        <button class = "btn btn-primary"
+        v-on:click = "showH2 = !showH2"
+        >
+        {{ btnText }}
+        </button>
+        <hr>
+        <app-progress v-bind:val = "sum" 
+                      v-bind:max ="maxNumbers * 5">
+        </app-progress>
+        <hr>
+        <transition name = "slide">
+          <h2 v-show = "showH2" class = "alert alert-success">Your profit: {{ sum }}</h2>
+        </transition>
+        <hr>
+        <app-progress v-bind:val = "numbers.length"
+                      v-bind:max ="maxNumbers">
+        </app-progress>
+        <hr>
+        <button class = "btn btn-success"
+        v-on:click = "addNumber"
+        v-bind:disabled = "done"
+        >
+          Add number
+        </button>
+        <hr>
+        <ul class = "list-group">
+          <li class = "list-group-item"
+              v-for = 'number in numbers'
+          >{{ number }}</li>
+
+        </ul>
+      </div>
+</div>
+  <script>
+
+    Vue.component('app-progress',{
+      props:{
+        max: Number,
+        val: Number
+      },
+      computed: {
+        width(){
+          let w = this.val/this.max * 100;
+
+          if(w > 100) {
+              w = 100;
+          }
+          else if(w < 0) {
+              w = 0;
+          }
+
+          return {
+            width: w + '%'
+          }
+        }
+      },
+      template:`
+      <div class = "progress">
+        <div class = "progress-bar" v-bind:style ="width"></div>
+        </div>
+      `
+    })
+
+    let sample = new Vue({
+      el: '.sample',
+      data: {
+        showH2: true,
+        numbers: [],
+        maxNumbers: 10
+      },
+      methods: {
+        addNumber() {
+          if(!this.done){
+          let rnd = Math.floor(Math.random() * 11) - 5;
+          this.numbers.push(rnd);
+        }
+      }
+      },
+      computed: {
+          sum() {
+            console.log('1');
+            let sum = 0;
+            for (let  i = 0; i < this.numbers.length; i++){
+              sum += this.numbers[i];
+            }
+            return sum;
+          },
+          btnText() {
+            return this.showH2 ? "Hide result" : 'Show result';
+          },
+          done(){
+            return this.numbers.length >= this.maxNumbers;
+          }
+        }
+    });
+
+  </script>
+</body>
+</html>

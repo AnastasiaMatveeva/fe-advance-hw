@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue_2</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+  <div class="wrapper">
+      <div class="sample">
+        <button class = "btn btn-primary"
+        v-on:click = "showH2 = !showH2"
+        >
+        {{ btnText }}
+        </button>
+        <hr>
+        <button class = "btn btn-success"
+        v-on:click = "addNumber"
+        >
+          Add number
+        </button>
+        <hr>
+        <h2 v-show = "showH2">Your profit: {{ sum }}</h2>
+        <hr>
+        <ul class = "list-group">
+          <li class = "list-group-item"
+              v-for = 'number in numbers'
+          >{{ number }}</li>
+
+        </ul>
+      </div>
+</div>
+  <script>
+    let sample = new Vue({
+      el: '.sample',
+      data: {
+        showH2: true,
+        numbers: []
+      },
+      methods: {
+        addNumber() {
+          let rnd = Math.floor(Math.random() * 11) - 5;
+          this.numbers.push(rnd);
+        }
+      },
+      computed: {
+          sum() {
+            console.log('1');
+            let sum = 0;
+            for (let  i = 0; i < this.numbers.length; i++){
+              sum += this.numbers[i];
+            }
+            return sum;
+          },
+          btnText() {
+            return this.showH2 ? "Hide result" : 'Show result';
+          }
+        }
+    });
+
+  </script>
+</body>
+</html>
