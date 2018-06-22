@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lesson_4</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>  </head>
+  <body>
+    <div id="app">
+<form>
+  <span> {{ count }} / 30 </span>
+  <textarea v-model = "text"></textarea>
+  <button v-if = "count <= 30">Push</button>
+</form>
+</div>
+  <script>
+  new Vue ({
+    el: '#app',
+    data: {
+      text: ""
+    },
+    computed: {
+      count: function() {
+        return this.text.length
+      }
+    }
+  })
+  </script>
+</body>
+</html>

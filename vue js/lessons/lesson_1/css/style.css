@@ -1,0 +1,27 @@
+body {
+  background-color: #f5fd;
+}
+#app {
+  background-color: #fff;
+  width: 300px;
+  position: absolute;
+   top: 50%;
+   left: 50%;:
+}
+li {
+  font-size: 26px;
+  font-style: italic;
+  display: block;
+  padding:  20px 30px;
+}
+ul {
+  list-style: none;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+.strike {
+  text-decoration: line-through;
+  color: #aaa;
+}

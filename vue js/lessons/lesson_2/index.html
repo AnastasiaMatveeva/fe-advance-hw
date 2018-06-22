@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lesson_2</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model = "message" @keyup.enter = "onClick">
+      <form>
+        <button v-on:click.prevent = "onClick"> Button </button>
+      </form>
+    </div>
+  <script>
+  new Vue({
+    el: "#app",
+    data: {
+      message: ''
+    },
+    methods: {
+       onClick: function() {
+        console.log(this.message)
+      }
+    }
+  })
+
+    </script>
+</body>
+</html>

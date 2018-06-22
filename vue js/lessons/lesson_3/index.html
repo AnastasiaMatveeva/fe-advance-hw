@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lesson_3</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>  </head>
+  <body>
+    <div id="app">
+      <header>
+        <button @click = "show = !show">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </header>
+
+      <aside v-show = 'show' v-bind:class = 'slide'></aside>
+    </div>
+  <script>
+ new Vue ({
+   el: "#app",
+  data: {
+    show: false
+  }
+ })
+
+  </script>
+  <script src="https://unpkg.com/ionicons@4.2.0/dist/ionicons.js"></script>
+</body>
+</html>
