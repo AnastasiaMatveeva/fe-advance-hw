@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+  <div class="wrapper">
+      <div class="sample">
+        <button class = "btn btn-primary"
+        v-on:click = "showH2 = !showH2"
+        >
+          Toggle header
+        </button>
+        <button class = "btn btn-success"
+        v-on:click = "numbers.push(Math.random())"
+        >
+          Add number
+        </button>
+        <hr>
+        <h2 v-show = "showH2">Hello, World</h2>
+        <hr>
+        <ul class = "list-group">
+          <li class = "list-group-item"
+              v-for = 'number in numbers'
+          >{{ number }}</li>
+
+        </ul>
+      </div>
+</div>
+  <script>
+    let sample = new Vue({
+      el: '.sample',
+      data: {
+        showH2: true,
+        numbers: []
+      }
+    });
+
+  </script>
+</body>
+</html>
